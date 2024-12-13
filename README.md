@@ -5,6 +5,7 @@
 - **Público alvo**: alunos da disciplina de SO (Sistemas Operacionais) do curso de TADS (Superior em Tecnologia em Análise e Desenvolvimento de Sistemas) no CNAT-IFRN (Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte - Campus Natal-Central).
 - disciplina: **SO** Sistemas Operacionais
 - professor: [Leonardo A. Minora](https://github.com/leonardo-minora)
+- aluno: [Lucas Pinheiro da Costa](https://github.com/lucas-pinheiro-costa) - matrícula 20231014040023
 
 ## Avaliação
 - **Lembre de fazer o fork deste repositório**
@@ -22,6 +23,38 @@ Considere as funções e objetivos principais de um sistema operacional conforme
 **Dica**: Pense em exemplos práticos de como o sistema operacional realiza essas tarefas no dia a dia de um usuário.
 
 **Copilot informa**: Essa questão incentiva os alunos a explorarem os conceitos fundamentais e a aplicarem o conhecimento teórico em situações práticas. Se precisar de mais alguma coisa, estou aqui para ajudar!
+
+<br>
+
+### Resposta da Questão 01
+
+O sistema operacional (SO) é responsável por gerenciar os recursos de hardware e software de um computador para garantir que o sistema funcione de maneira eficiente e segura. Ele atua como uma camada de abstração entre o hardware e os programas de usuário, permitindo que estes últimos utilizem os recursos sem precisar se preocupar com as complexidades do hardware subjacente.
+
+<b>Gerenciamento de Processos:</b> <br>
+O gerenciamento de processos é uma das funções centrais de um sistema operacional. Ele envolve a criação, escalonamento e terminação de processos, além da gestão de suas interações. Um processo é basicamente um programa em execução, e o SO deve gerenciar múltiplos processos de forma que eles possam compartilhar eficientemente os recursos do sistema, como o processador (CPU), sem conflitos.
+
+Um exemplo prático disso ocorre quando o usuário executa vários programas simultaneamente, como um navegador de internet, um editor de texto e um reprodutor de mídia. O sistema operacional aloca uma fatia do tempo de CPU para cada processo de forma justa, alternando entre eles rapidamente, dando a sensação de que estão sendo executados ao mesmo tempo, mesmo que o processador só execute um de cada vez. Isso é feito por meio de técnicas de escalonamento de processos, como o Round Robin, onde cada processo recebe um pequeno intervalo de tempo (quantum) para executar antes de ser interrompido e o próximo processo ser escalonado.
+
+---
+
+<b>Gerenciamento de Memória:</b> <br>
+O gerenciamento de memória é crucial para garantir que as aplicações funcionem corretamente e de forma eficiente, sem afetar o desempenho do sistema. A memória é um recurso finito, e o sistema operacional deve gerenciá-la de forma a garantir que cada processo tenha sua área de memória isolada, evitando que um processo sobrescreva ou interfira em outro. Além disso, o sistema deve alocar e liberar memória conforme necessário.
+
+Uma das abordagens mais importantes nesse gerenciamento é a memória virtual, que permite que o sistema operacional "virtualize" a memória, dando a cada processo a ilusão de que possui uma quantidade maior de memória do que realmente está disponível. Quando a memória física (RAM) é insuficiente, o SO usa o disco rígido para simular memória adicional, técnica conhecida como paging ou troca de páginas. Por exemplo, se um usuário abrir muitos aplicativos ao mesmo tempo, o sistema pode mover dados de processos que não estão sendo usados ativamente para o espaço de swap no disco, liberando a memória para os aplicativos em uso.
+
+---
+
+<b>Gerenciamento de Dispositivos de Entrada e Saída:</b> <br>
+Os dispositivos de entrada e saída (E/S) incluem todos os periféricos com os quais o computador interage, como discos rígidos, impressoras, teclados, mouses e monitores. O SO deve gerenciar esses dispositivos de forma eficiente, garantindo que o acesso a eles seja feito de forma coordenada e sem conflitos. Isso é feito por meio de drivers de dispositivos, que são programas especializados que permitem que o SO interaja com os dispositivos de hardware de maneira abstrata.
+
+Por exemplo, quando um usuário imprime um documento, o sistema operacional coordena o envio dos dados da impressão para a impressora. O SO coloca a tarefa de impressão em uma fila e a impressora processa as tarefas de forma sequencial. Enquanto isso, o usuário pode continuar utilizando outros aplicativos, pois o SO garante que o processo de impressão não bloqueie o uso de outros recursos, como o teclado ou a tela.
+
+---
+
+<b>Gerenciamento de Arquivos:</b> <br>
+O gerenciamento de arquivos é outra função essencial do sistema operacional, permitindo a criação, organização, acesso e manipulação de arquivos de forma eficiente e segura. O SO abstrai a complexidade do armazenamento físico dos dados, proporcionando uma interface simples para os usuários e programas interagirem com arquivos e diretórios, sem precisar se preocupar com como os dados estão fisicamente armazenados no disco.
+
+No dia a dia, quando um usuário cria um novo arquivo em um editor de texto ou grava um arquivo em um disco rígido, o sistema operacional lida com a alocação de espaço no disco e a atualização do sistema de arquivos. O SO organiza os dados em um sistema hierárquico de diretórios, permitindo ao usuário armazenar arquivos de maneira estruturada e fácil de localizar. Além disso, o gerenciamento de permissões de arquivos, onde o sistema controla quem pode acessar ou modificar determinados arquivos, garante a segurança e privacidade dos dados. Se um usuário tenta acessar um arquivo sem permissão, o sistema operacional negará o acesso, protegendo os dados de uso indevido.
 
 # Questão 2. Estrutura de sistemas operacionais
 
