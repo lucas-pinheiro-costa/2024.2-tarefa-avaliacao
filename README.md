@@ -56,6 +56,8 @@ O gerenciamento de arquivos é outra função essencial do sistema operacional, 
 
 No dia a dia, quando um usuário cria um novo arquivo em um editor de texto ou grava um arquivo em um disco rígido, o sistema operacional lida com a alocação de espaço no disco e a atualização do sistema de arquivos. O SO organiza os dados em um sistema hierárquico de diretórios, permitindo ao usuário armazenar arquivos de maneira estruturada e fácil de localizar. Além disso, o gerenciamento de permissões de arquivos, onde o sistema controla quem pode acessar ou modificar determinados arquivos, garante a segurança e privacidade dos dados. Se um usuário tenta acessar um arquivo sem permissão, o sistema operacional negará o acesso, protegendo os dados de uso indevido.
 
+<br>
+
 # Questão 2. Estrutura de sistemas operacionais
 
 ## Texto informativo
@@ -103,6 +105,56 @@ Com base no texto sobre a estrutura de sistemas operacionais, analise como as di
 
 **Copilot informa**: Essa questão incentiva os alunos a considerarem tanto os aspectos econômicos quanto os de segurança ao avaliar diferentes arquiteturas de sistemas operacionais.
 
+<br>
+
+### Resposta da Questão 02
+
+A seguir, estão dispostas cada arquitetura de sistema operacional considerando os pontos mencionados:
+
+**Arquitetura Monolítica:**
+
+- **Complexidade de Implementação e Manutenção:** Nesta arquitetura, todas as funções do sistema operacional estão combinadas em um único bloco de código. Embora isso possa simplificar o desenvolvimento inicial, a manutenção torna-se complexa, pois alterações em um módulo podem impactar todo o sistema, exigindo testes extensivos. 
+
+- **Necessidade de Especialização da Equipe:** A equipe deve possuir um conhecimento abrangente de todo o sistema, já que os módulos são interdependentes.
+
+- **Potenciais Vulnerabilidades de Segurança:** Uma falha em qualquer parte do sistema pode comprometer todo o SO, devido à falta de isolamento entre os componentes.
+
+- **Facilidade de Atualização e Correção de Falhas:** Atualizações podem ser arriscadas, pois a modificação de um componente pode afetar outros, aumentando o risco de introduzir novas falhas.
+
+*Exemplo:* O Linux tradicionalmente utiliza uma arquitetura monolítica, embora tenha incorporado modularidade ao longo do tempo.
+
+---
+
+**Arquitetura Microkernel:**
+
+- **Complexidade de Implementação e Manutenção:** Embora o desenvolvimento inicial possa ser mais complexo devido à necessidade de definir interfaces claras entre o núcleo mínimo e os serviços externos, a manutenção é facilitada pelo isolamento dos componentes.
+
+- **Necessidade de Especialização da Equipe:** A equipe pode se especializar em módulos específicos, permitindo um desenvolvimento mais focado e eficiente.
+
+- **Potenciais Vulnerabilidades de Segurança:** O isolamento dos serviços em processos separados aumenta a segurança, limitando o impacto de falhas ou ataques a componentes individuais.
+
+- **Facilidade de Atualização e Correção de Falhas:** Atualizações podem ser realizadas em módulos específicos sem afetar o núcleo do sistema, facilitando correções e melhorias.
+
+*Exemplo:* O Minix 3 é um exemplo de sistema operacional que utiliza a arquitetura microkernel.
+
+---
+
+**Arquitetura em Camadas:**
+
+- **Complexidade de Implementação e Manutenção:** A divisão do sistema em camadas bem definidas pode simplificar o desenvolvimento e a manutenção, permitindo que problemas sejam isolados e corrigidos em camadas específicas.
+
+- **Necessidade de Especialização da Equipe:** A equipe pode se especializar em camadas específicas, facilitando o desenvolvimento modular.
+
+- **Potenciais Vulnerabilidades de Segurança:** Cada camada pode implementar suas próprias medidas de segurança; no entanto, a comunicação entre camadas deve ser cuidadosamente gerenciada para evitar vulnerabilidades.
+
+- **Facilidade de Atualização e Correção de Falhas:** Atualizações podem ser realizadas em camadas individuais, desde que as interfaces entre as camadas sejam mantidas, facilitando a evolução do sistema.
+
+*Exemplo:* O sistema operacional MULTICS utilizava uma arquitetura em camadas.
+
+A escolha da arquitetura de um sistema operacional afeta diretamente o custo de desenvolvimento, a manutenção e a segurança. Arquiteturas monolíticas podem oferecer desempenho superior, mas apresentam desafios em termos de manutenção e segurança. Por outro lado, arquiteturas microkernel e em camadas proporcionam maior modularidade e segurança, embora possam implicar em maior complexidade inicial no desenvolvimento. 
+
+<br>
+
 # Questão 3. Introdução à Segurança de Sistemas Operacionais
 
 ## Texto informativo
@@ -131,6 +183,45 @@ Considerando os mecanismos de segurança discutidos, analise como a implementaç
 
 **Copilot informa**: Essa questão incentiva os alunos a refletirem sobre o equilíbrio entre segurança, performance e usabilidade, aplicando conceitos teóricos a contextos práticos.
 
+<br>
+
+### Resposta da Questão 03
+
+### Controles de Acesso
+
+**Benefícios e Desafios:**  
+Os controles de acesso são fundamentais para garantir que apenas usuários autorizados possam acessar ou modificar recursos específicos do sistema. Isso protege a **confidencialidade** e a **integridade** dos dados. Um exemplo clássico é o uso de permissões em sistemas operacionais como **Linux** e **Windows**, onde arquivos e diretórios têm permissões definidas para leitura, escrita e execução por diferentes usuários e grupos.
+Porém, os controles de acesso trazem desafios. A necessidade de verificar permissões em cada solicitação pode introduzir um **overhead** na performance, especialmente em sistemas que realizam operações frequentes em arquivos ou recursos. Além disso, configurar permissões corretamente pode ser complexo, exigindo uma equipe com conhecimento especializado em políticas de segurança.
+
+**Impacto na Experiência do Usuário:**  
+Para o usuário comum, os controles de acesso podem ser transparentes, mas se mal configurados, podem levar a dificuldades, como a impossibilidade de abrir ou editar arquivos devido a permissões insuficientes. Isso pode prejudicar a **usabilidade** se os controles não forem intuitivos. Por exemplo, em sistemas Windows, mensagens de erro relacionadas a permissões podem frustrar usuários que não entendem o motivo do bloqueio.
+
+**Exemplo Crítico:**  
+Em servidores de empresas, os controles de acesso são vitais para proteger dados sensíveis. Um servidor de arquivos deve garantir que somente funcionários autorizados possam acessar informações confidenciais da empresa, impedindo o vazamento de dados.
+
+---
+
+### Criptografia
+
+**Benefícios e Desafios:**  
+A criptografia é usada para proteger dados tanto **em repouso** (armazenados) quanto **em trânsito** (durante a transmissão). Ela garante que apenas usuários com a chave correta possam acessar informações sensíveis. Sistemas operacionais como **Windows** oferecem o **BitLocker** para criptografar discos inteiros, enquanto no **Linux**, ferramentas como **LUKS** são usadas para criptografia de volumes.
+Apesar de seus benefícios em termos de **confidencialidade** e **integridade**, a criptografia impõe desafios de performance. O processo de criptografar e descriptografar dados consome recursos da CPU, o que pode diminuir a velocidade de leitura e escrita em discos ou a taxa de transferência de dados na rede. Isso é especialmente perceptível em dispositivos com hardware limitado ou em sistemas com grandes volumes de dados.
+
+**Impacto na Experiência do Usuário:**  
+Para o usuário, a criptografia geralmente é transparente quando bem implementada. No entanto, pode causar atrasos perceptíveis durante operações intensivas de E/S (entrada e saída), como copiar grandes arquivos criptografados. Além disso, se o usuário perder a chave de criptografia, os dados se tornam inacessíveis, impactando negativamente a experiência.
+
+**Exemplo Crítico:**  
+Criptografia é essencial em sistemas que armazenam dados financeiros ou pessoais, como em dispositivos móveis e laptops corporativos. Se um laptop for roubado, a criptografia garante que os dados armazenados não possam ser acessados sem a chave correta.
+
+---
+
+### Conclusão
+
+A implementação de controles de acesso e criptografia em sistemas operacionais é crucial para a segurança, mas cada mecanismo apresenta um equilíbrio entre **segurança**, **performance** e **usabilidade**. Controles de acesso protegem os recursos do sistema contra acessos indevidos, mas podem introduzir complexidade e overhead de processamento. Já a criptografia protege os dados contra vazamentos e acessos não autorizados, mas pode impactar a performance, especialmente durante operações de E/S intensivas.
+
+Nos sistemas operacionais modernos, como **Windows**, **Linux** e **macOS**, esses mecanismos são aplicados de forma combinada para fornecer um ambiente seguro, equilibrando os impactos na performance com a necessidade de proteger a integridade e confidencialidade dos dados.
+
+<br>
 
 # Questão 4. Custo de Processamento versus Algoritmo Ótimo de Escalonamento
 
@@ -162,6 +253,51 @@ Considerando os conceitos de custo de processamento e algoritmo ótimo de escalo
 
 **Copilot informa**: Essa questão incentiva os alunos a refletirem sobre a complexidade e os trade-offs envolvidos na escolha de um algoritmo de escalonamento, aplicando conceitos teóricos a contextos práticos.
 
+<br>
+
+### Resposta da questão 04
+
+1. **First-Come, First-Served (FCFS)**  
+   - **Vantagens:**  
+     FCFS é simples de implementar e não exige muitos recursos computacionais, o que reduz o custo de processamento. Ele funciona de forma justa, atendendo os processos na ordem em que chegam, semelhante a uma fila comum.  
+   
+   - **Desvantagens:**  
+     FCFS pode levar ao problema conhecido como *convoy effect* ou **efeito comboio**, onde processos curtos ficam presos atrás de processos longos, aumentando significativamente o tempo de espera e o tempo de resposta para esses processos curtos. Isso pode prejudicar a performance do sistema em cenários com uma mistura de processos de diferentes tamanhos.  
+
+2. **Round Robin (RR)**  
+   - **Vantagens:**  
+     RR é amplamente utilizado em sistemas interativos, pois garante que cada processo receba uma fatia de tempo (quantum) de maneira equitativa. Isso melhora o **tempo de resposta**, especialmente para processos interativos curtos, evitando que um único processo monopolize o processador.  
+   
+   - **Desvantagens:**  
+     O RR tem um custo de processamento maior devido ao número frequente de **trocas de contexto**. Cada troca de contexto consome tempo de CPU e recursos de memória, reduzindo a eficiência geral, especialmente se o quantum for muito pequeno. Além disso, em sistemas com muitos processos, o tempo de espera pode ser elevado, já que cada processo precisa aguardar a sua vez repetidamente.
+
+---
+
+#### **Impacto do custo de processamento na escolha do algoritmo**
+
+O custo de processamento é um fator determinante na escolha do algoritmo de escalonamento. Algoritmos simples como **FCFS** possuem baixo custo de processamento, pois não exigem cálculos complexos ou trocas frequentes de contexto. Isso os torna adequados para **tarefas em lote (batch)** que não necessitam de respostas rápidas e podem ser executadas sequencialmente.
+
+Por outro lado, algoritmos como **RR**, que garantem tempos de resposta mais curtos, são mais adequados para **sistemas interativos**. No entanto, o custo adicional das trocas de contexto significa que RR pode não ser ideal para sistemas com **restrições de desempenho**, como dispositivos móveis ou sistemas embarcados, onde os recursos são limitados.
+
+---
+
+#### **Exemplos de situações onde um algoritmo pode ser preferível a outro**
+
+1. **Sistemas de tempo real:**  
+   Em sistemas críticos, como controle de processos industriais ou dispositivos médicos, onde o tempo de resposta é previsível e garantido, algoritmos como **Shortest Job Next (SJN)** ou **Priority Scheduling** são preferidos. Eles garantem que tarefas de alta prioridade ou com curta duração sejam executadas rapidamente.
+
+2. **Servidores Web:**  
+   Servidores que precisam responder rapidamente a requisições de usuários podem se beneficiar do **Round Robin (RR)**. Cada requisição recebe uma fatia de tempo de CPU, garantindo que nenhum pedido fique muito tempo esperando. Isso melhora a experiência do usuário em cenários de alto tráfego.
+
+3. **Sistemas de uso geral (Desktops):**  
+   Sistemas operacionais de uso geral, como **Windows**, **Linux** e **macOS**, adotam abordagens híbridas, combinando **Round Robin** com **escalonamento por prioridades dinâmicas**. Isso permite equilibrar eficiência, tempo de resposta e justiça entre processos interativos e em segundo plano.
+
+---
+
+A escolha do algoritmo de escalonamento ideal depende das necessidades específicas do sistema e das aplicações que ele executa. Algoritmos como **FCFS** são eficientes em termos de custo de processamento, mas podem prejudicar o tempo de resposta. Já o **Round Robin** melhora a interatividade, mas com um custo maior de processamento devido às trocas de contexto. Em sistemas operacionais modernos, muitas vezes é necessário um equilíbrio entre esses algoritmos para otimizar o uso do processador e atender a diferentes tipos de tarefas.
+
+<br>
+
 # Questão 5. Aplicativo em python vs aplicativos em c
 
 ## Questão
@@ -175,3 +311,60 @@ Explique o caminho que as instruções seguem desde um aplicativo escrito em Pyt
 **Dica:** Compare e contraste os dois processos, destacando as principais diferenças e semelhanças na forma como as instruções são processadas e executadas.
 
 **Copilot informa**: Essa questão incentiva os alunos a refletirem sobre os diferentes caminhos que as instruções seguem em linguagens interpretadas e compiladas, aplicando conceitos teóricos a contextos práticos.
+
+<br>
+
+### Resposta da questão 05
+
+A execução de programas escritos em Python e C segue caminhos distintos devido às diferenças fundamentais entre linguagens interpretadas e compiladas.
+
+### Aplicativo em Python
+
+1. **Papel do Interpretador**:
+   - O Python é uma linguagem interpretada, o que significa que o código fonte é executado diretamente por um interpretador, sem a necessidade de compilação prévia. Ao iniciar um script Python, o interpretador lê o código fonte e o converte em **bytecode**, uma representação intermediária mais próxima do código de máquina. Este bytecode é então executado pela **Máquina Virtual Python (PVM)**, que interpreta e executa as instruções em tempo real.
+
+2. **Interação com o Kernel e Drivers**:
+   - Durante a execução, o interpretador Python pode fazer chamadas ao sistema operacional para interagir com recursos de hardware, como entrada/saída de dados, acesso a arquivos ou comunicação em rede. Essas solicitações são encaminhadas ao **kernel** do sistema operacional, que, por sua vez, utiliza os **drivers de dispositivo** apropriados para interagir com o hardware físico.
+
+3. **Tradução para Formato Binário**:
+   - No caso do Python, a tradução final para código binário ocorre em tempo de execução. O interpretador e a PVM convertem dinamicamente o bytecode em instruções de máquina que o hardware pode executar. Essa abordagem permite maior flexibilidade, mas pode resultar em desempenho inferior quando comparado a linguagens compiladas, devido à sobrecarga da interpretação em tempo real.
+
+---
+
+### Aplicativo em C
+
+1. **Processo de Compilação**:
+   - O C é uma linguagem compilada, o que significa que o código fonte é transformado em código de máquina antes da execução. O processo de compilação envolve várias etapas:
+     - **Pré-processamento**: Tratamento de diretivas como `#include` e `#define`.
+     - **Compilação**: Tradução do código fonte em código assembly específico para a arquitetura alvo.
+     - **Montagem (Assembly)**: Conversão do código assembly em código de máquina, resultando em arquivos objeto.
+     - **Linkagem**: Combinação dos arquivos objeto e bibliotecas externas em um executável final. 
+
+2. **Interação com o Kernel e Drivers**:
+   - O executável gerado pode fazer chamadas ao sistema operacional para interagir com o hardware. Essas chamadas são gerenciadas pelo kernel, que utiliza os drivers de dispositivo correspondentes para acessar o hardware físico.
+
+3. **Tradução para Formato Binário**:
+   - A tradução para código binário ocorre durante a compilação. O compilador converte o código fonte em instruções de máquina específicas para a arquitetura alvo, resultando em um executável binário que pode ser diretamente carregado e executado pelo hardware.
+
+---
+
+### Comparação entre os Processos
+
+- **Tradução de Código**:
+  - *Python*: Interpretação em tempo de execução, com conversão dinâmica para código de máquina.
+  - *C*: Compilação prévia que gera um executável binário pronto para execução.
+
+- **Desempenho**:
+  - *Python*: Pode ser mais lento devido à sobrecarga da interpretação em tempo real.
+  - *C*: Geralmente mais rápido, pois o código já está em formato binário otimizado para o hardware.
+
+- **Flexibilidade e Portabilidade**:
+  - *Python*: Alta portabilidade; o mesmo código pode ser executado em diferentes plataformas com o interpretador adequado.
+  - *C*: Menos portável; o código fonte pode precisar de ajustes e recompilação para diferentes plataformas.
+
+- **Interação com o Sistema Operacional**:
+  - Em ambos os casos, a interação com o hardware é mediada pelo kernel do sistema operacional e pelos drivers de dispositivo. No entanto, em C, o desenvolvedor tem mais controle sobre essas interações, podendo otimizar o desempenho e o uso de recursos.
+
+---
+
+Embora ambos os tipos de aplicativos interajam com o hardware por meio do sistema operacional, as diferenças nos processos de tradução e execução resultam em variações significativas em termos de desempenho, flexibilidade e controle sobre os recursos do sistema. A escolha entre Python e C deve considerar essas diferenças, alinhando-as aos requisitos específicos da aplicação em desenvolvimento. 
